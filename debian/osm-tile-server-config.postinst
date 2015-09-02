@@ -22,38 +22,40 @@ set -e
 
 case "$1" in
     configure)
-        #db_get osm-tile-server/db-name
-        #DBNAME=$RET
+        db_get osm-tile-server/db-user
+        DBUSER=$RET
+        db_get osm-tile-server/db-name
+        DBNAME=$RET
 
-        if ! getent group osm >/dev/null; then
-            addgroup --system osm >/dev/null
+        if ! getent group $DBUSER >/dev/null; then
+            addgroup --system $DBUSER >/dev/null
         fi
     
-        if ! getent passwd osm >/dev/null; then
+        if ! getent passwd $DBUSER >/dev/null; then
             adduser \
                 --system \
                 --disabled-login \
-                --ingroup osm \
-                --home /var/lib/osm-tile-server-user \
+                --ingroup $DBUSER \
+                --home /var/lib/osm-tile-server \
                 --gecos "osm tile server user" \
                 --shell /bin/bash \
-                osm >/dev/null
+                $DBUSER >/dev/null
         fi
 
 
-        echo -n "Checking if user osm already exists... "
+        echo -n "Checking if user $DBUSER already exists... "
         set +e
-        su postgres -c "cd /var/lib/postgresql ; psql postgres -tAc \"SELECT 1 FROM pg_roles WHERE rolname='osm'\"" | grep -q 1
+        su postgres -c "cd /var/lib/postgresql ; psql postgres -tAc \"SELECT 1 FROM pg_roles WHERE rolname='$DBUSER'\"" | grep -q 1
         USEREXISTS=$?
         set -e
         if [ "$USEREXISTS" = "0" ] ; then
             echo "YES"
         else
             echo "NO. Creating user, database and setting it up..."
-            su postgres -c "cd /var/lib/postgresql ; createuser osm"
-            su postgres -c "cd /var/lib/postgresql ; createdb -E UTF8 -O osm osmdb"
-            su postgres -c "cd /var/lib/postgresql ; psql -c \"CREATE EXTENSION hstore;\" -d osmdb"
-            su postgres -c "cd /var/lib/postgresql ; psql -c \"CREATE EXTENSION postgis;\" -d osmdb"
+            su postgres -c "cd /var/lib/postgresql ; createuser $DBUSER"
+            su postgres -c "cd /var/lib/postgresql ; createdb -E UTF8 -O $DBUSER $DBNAME"
+            su postgres -c "cd /var/lib/postgresql ; psql -c \"CREATE EXTENSION hstore;\" -d $DBNAME"
+            su postgres -c "cd /var/lib/postgresql ; psql -c \"CREATE EXTENSION postgis;\" -d $DBNAME"
             echo "DONE"
         fi
    

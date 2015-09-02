@@ -1,30 +1,11 @@
-Template: osm-tile-server/path
-Type: string
-Default: /blabla
-_Description: Enter the path to the pictures:
 
 Template: osm-tile-server/db-name
 Type: string
-Default: naturfakta
-_Description: Enter name of mysql database to use for naturfakta:
-
-Template: osm-tile-server/db-password
-Type: password
-Default: default
-_Description: Enter the password for the mysql database:
+Default: osmdb
+_Description: Enter name of postgresql database to use for the tile server:
 
 Template: osm-tile-server/db-user
 Type: string
-Default: naturfaktauser
-_Description: Enter name of the mysql user:
-
-Template: osm-tile-server/root-password
-Type: password
-Default: 
-_Description: Enter the root password for the config db:
-
-Template: osm-tile-server/enable
-Type: boolean
-Default: true
-_Description: Enable apache site for naturfakta now?:
+Default: osm
+_Description: Enter name of the postgresql user:
 
