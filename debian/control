@@ -5,20 +5,26 @@ Maintainer: Ruben Undheim <ruben.undheim@gmail.com>
 Build-Depends: debhelper (>= 9)
 Standards-Version: 3.9.6
 
+Package: osm-tile-server
+Architecture: all
+Depends: ${misc:Depends}, osm-tile-server-base
+Recommends: osm-tile-server-tilelite
+Description: Meta package for installing OSM tile server
+
 Package: osm-tile-server-base
 Architecture: all
-Depends: ${shlibs:Depends}, ${misc:Depends},
+Depends: ${misc:Depends},
         osm-tile-server-config, openstreetmap-carto, node-carto, osm2pgsql
 Description: Common files for OSM tile server
 
 Package: osm-tile-server-config
 Architecture: all
-Depends: ${shlibs:Depends}, ${misc:Depends},
+Depends: ${misc:Depends},
         postgis, postgresql-contrib
 Description: This package contains the main configuration of the OSM tile server
 
 Package: osm-tile-server-tilelite
 Architecture: all
-Depends: ${shlibs:Depends}, ${misc:Depends},
+Depends: ${misc:Depends},
          osm-tile-server-base, tilelite
 Description: This sets up a full OSM tile server using tilelite
