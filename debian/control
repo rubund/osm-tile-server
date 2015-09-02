@@ -7,8 +7,8 @@ Standards-Version: 3.9.6
 
 Package: osm-tile-server
 Architecture: all
-Depends: ${misc:Depends}, osm-tile-server-base
-Recommends: osm-tile-server-tilelite
+Depends: ${misc:Depends}, osm-tile-server-base,
+            osm-tile-server-tilelite | osm-tile-server-mod-tile
 Description: Meta package for installing OSM tile server
 
 Package: osm-tile-server-base
@@ -28,4 +28,12 @@ Package: osm-tile-server-tilelite
 Architecture: all
 Depends: ${misc:Depends},
          osm-tile-server-config, tilelite
+Breaks: osm-tile-server-mod-tile
 Description: This sets up a full OSM tile server using tilelite
+
+Package: osm-tile-server-mod-tile
+Architecture: all
+Depends: ${misc:Depends},
+         osm-tile-server-config, tilelite
+Breaks: osm-tile-server-tilelite
+Description: This sets up a full OSM tile server using mod_tile
