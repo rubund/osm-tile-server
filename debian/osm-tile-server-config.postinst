@@ -41,18 +41,20 @@ case "$1" in
         fi
 
 
-        echo "Checking user:"
+        echo -n "Checking if user osm already exists... "
         set +e
         su postgres -c "cd /var/lib/postgresql ; psql postgres -tAc \"SELECT 1 FROM pg_roles WHERE rolname='osm'\"" | grep -q 1
         USEREXISTS=$?
         set -e
         if [ "$USEREXISTS" = "0" ] ; then
-            echo "User already exists"
+            echo "YES"
         else
+            echo "NO. Creating user, database and setting it up..."
             su postgres -c "cd /var/lib/postgresql ; createuser osm"
             su postgres -c "cd /var/lib/postgresql ; createdb -E UTF8 -O osm osmdb"
             su postgres -c "cd /var/lib/postgresql ; psql -c \"CREATE EXTENSION hstore;\" -d osmdb"
             su postgres -c "cd /var/lib/postgresql ; psql -c \"CREATE EXTENSION postgis;\" -d osmdb"
+            echo "DONE"
         fi
    
         
