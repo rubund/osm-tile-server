@@ -22,6 +22,7 @@ set -e
 
 case "$1" in
     configure)
+        chown osm:osm /var/cache/osm-tile-server-tilelite
         
     ;;
 
