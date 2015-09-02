@@ -24,50 +24,38 @@ case "$1" in
     configure)
         #db_get osm-tile-server/db-name
         #DBNAME=$RET
-        #db_get osm-tile-server/db-password
-        #PASSWORD=$RET
-        #db_get osm-tile-server/db-user
-        #DBUSER=$RET
-        #db_get osm-tile-server/root-password
-        #ROOTPASSWORD=$RET
-        #RES=$(echo "select schema_name from information_schema.schemata where schema_name = '$DBNAME';" | mysql -h localhost -u root -p$ROOTPASSWORD mysql)
-        #if [ "$RES" = "" ] ; then
-        #    echo "Database does not exist. Creating..."
-        #    echo "create database $DBNAME;" | mysql -h localhost -u root -p$ROOTPASSWORD mysql
-        #    echo "grant all on ${DBNAME}.* to ${DBUSER} identified by '${PASSWORD}';" | mysql -h localhost -u root -p$ROOTPASSWORD mysql
-        #else
-        #    echo "Database $DBNAME exists already. Skipping setup"
-        #fi
-        #sed -i 's/DBNAME=.*$/DBNAME='$DBNAME'/' /etc/osm-tile-server.conf
-        #sed -i 's/DBUSER=.*$/DBUSER='$DBUSER'/' /etc/osm-tile-server.conf
-        #sed -i 's/DBPASS=.*$/DBPASS='$PASSWORD'/' /etc/osm-tile-server.conf
-        #sed -i 's/database =.*$/database = '$DBNAME'/' /etc/osm-tile-server.mysql.cnf
-        #sed -i 's/user =.*$/user = '$DBUSER'/' /etc/osm-tile-server.mysql.cnf
-        #sed -i 's/password =.*$/password = '$PASSWORD'/' /etc/osm-tile-server.mysql.cnf
-        #sed -i "s/\$dbuser = .*$/\$dbuser = '"$DBUSER"';/" /usr/share/websites/naturfakta/www/versions/mysql.php
-        #sed -i "s/\$dbpass = .*$/\$dbpass = '"$PASSWORD"';/" /usr/share/websites/naturfakta/www/versions/mysql.php
-        #sed -i "s/\$dbname = .*$/\$dbname = '"$DBNAME"';/" /usr/share/websites/naturfakta/www/versions/mysql.php
-        #sed -i "s/\$dbuser = .*$/\$dbuser = '"$DBUSER"';/" /usr/share/websites/naturfakta/www/edit/mysql.php
-        #sed -i "s/\$dbpass = .*$/\$dbpass = '"$PASSWORD"';/" /usr/share/websites/naturfakta/www/edit/mysql.php
-        #sed -i "s/\$dbname = .*$/\$dbname = '"$DBNAME"';/" /usr/share/websites/naturfakta/www/edit/mysql.php
-        #sed -i "s/sqldbname = .*$/sqldbname = '"$DBNAME"';/" /usr/lib/osm-tile-server/python/mypasswords.py
-        #sed -i "s/sqlpass = .*$/sqlpass = '"$PASSWORD"';/" /usr/lib/osm-tile-server/python/mypasswords.py
-        #sed -i "s/sqldbuser = .*$/sqldbuser = '"$DBUSER"';/" /usr/lib/osm-tile-server/python/mypasswords.py
-        #db_get osm-tile-server/enable
-        #ENABLENOW=$RET
-        #if [ "$ENABLENOW" = "true" ] ; then
-        #    echo "Enabling site now"
-        #    a2ensite naturfakta.conf
-        #    a2enmod rewrite
-        #    a2enmod ssl
-        #    a2enmod wsgi
-        #fi
-        ##db_get osm-tile-server/path
-        ##PICTUREPATH=$RET
-        ##ln -sf $PICTUREPATH /var/www/packages/bilder/www/bilder
-        #chown -R www-data:www-data /var/cache/naturfakta
-        #cp /usr/share/osm-tile-server/keys/check.php /usr/share/osm-tile-server/keys/.htaccess /var/lib/osm-tile-server/keys/
-        #ln -sf /usr/share/websites/naturfakta/www/versions/bimage.php /var/lib/osm-tile-server/images/bimage.php
+
+        if ! getent group osm >/dev/null; then
+            addgroup --system osm >/dev/null
+        fi
+    
+        if ! getent passwd osm >/dev/null; then
+            adduser \
+                --system \
+                --disabled-login \
+                --ingroup osm \
+                --home /var/lib/osm-tile-server-user \
+                --gecos "osm tile server user" \
+                --shell /bin/bash \
+                osm >/dev/null
+        fi
+
+
+        echo "Checking user:"
+        set +e
+        su postgres -c "cd /var/lib/postgresql ; psql postgres -tAc \"SELECT 1 FROM pg_roles WHERE rolname='osm'\"" | grep -q 1
+        USEREXISTS=$?
+        set -e
+        if [ "$USEREXISTS" = "0" ] ; then
+            echo "User already exists"
+        else
+            su postgres -c "cd /var/lib/postgresql ; createuser osm"
+            su postgres -c "cd /var/lib/postgresql ; createdb -E UTF8 -O osm osmdb"
+            su postgres -c "cd /var/lib/postgresql ; psql -c \"CREATE EXTENSION hstore;\" -d osmdb"
+            su postgres -c "cd /var/lib/postgresql ; psql -c \"CREATE EXTENSION postgis;\" -d osmdb"
+        fi
+   
+        
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)

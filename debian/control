@@ -8,13 +8,13 @@ Standards-Version: 3.9.6
 Package: osm-tile-server-base
 Architecture: all
 Depends: ${shlibs:Depends}, ${misc:Depends},
-        osm-tile-server-config
+        osm-tile-server-config, openstreetmap-carto, node-carto, osm2pgsql
 Description: Common files for OSM tile server
 
 Package: osm-tile-server-config
 Architecture: all
 Depends: ${shlibs:Depends}, ${misc:Depends},
-        postgis, postgresql-contrib 
+        postgis, postgresql-contrib
 Description: This package contains the main configuration of the OSM tile server
 
 Package: osm-tile-server-tilelite
