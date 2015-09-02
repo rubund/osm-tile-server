@@ -73,7 +73,7 @@ case "$1" in
         fi
    
         if [ "$IMPORTSAMPLE" = "true" ] ; then
-            su $DBUSER -c "osm2pgsql --slim -d $DBNAME -C 1600 --hstore -S /usr/share/osm2pgsql/default.style /usr/share/osm-tile-server-base/samples/liechtenstein-latest.osm.pbf"
+            su $DBUSER -c "osm2pgsql --slim -d $DBNAME -C 100 --hstore -S /usr/share/osm2pgsql/default.style /usr/share/osm-tile-server-base/samples/liechtenstein-latest.osm.pbf"
         fi
         
     ;;
