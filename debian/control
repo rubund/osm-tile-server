@@ -27,7 +27,7 @@ Description: This package contains the main configuration of the OSM tile server
 Package: osm-tile-server-tilelite
 Architecture: all
 Depends: ${misc:Depends},
-         osm-tile-server-config, tilelite
+         osm-tile-server-config, tilelite, screen
 Breaks: osm-tile-server-mod-tile
 Description: This sets up a full OSM tile server using tilelite
 
