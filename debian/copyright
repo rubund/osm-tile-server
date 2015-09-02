@@ -1,0 +1,9 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: osm-tile-server
+
+Files: *
+Copyright: 2015 Ruben Undheim <ruben.undheim@gmail.com>
+License: GPL-2+
+
+
+License: GPL-2+
