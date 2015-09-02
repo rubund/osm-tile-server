@@ -34,6 +34,7 @@ Description: This sets up a full OSM tile server using tilelite
 Package: osm-tile-server-mod-tile
 Architecture: all
 Depends: ${misc:Depends},
-         osm-tile-server-config, tilelite
+         osm-tile-server-config, apache2
+#       libapache2-mod-tile
 Breaks: osm-tile-server-tilelite
 Description: This sets up a full OSM tile server using mod_tile
