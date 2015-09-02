@@ -22,12 +22,6 @@ set -e
 
 case "$1" in
     configure)
-        db_get osm-tile-server/db-user
-        DBUSER=$RET
-        db_get osm-tile-server/db-name
-        DBNAME=$RET
-
-        su $DBUSER -c "osm2pgsql --slim -d $DBNAME -C 1600 --hstore -S /usr/share/osm2pgsql/default.style /usr/share/osm-tile-server-base/samples/liechtenstein-latest.osm.pbf"
         
     ;;
 

@@ -9,3 +9,10 @@ Type: string
 Default: osm
 _Description: Enter name of the postgresql user:
 
+Template: osm-tile-server/import-sample
+Type: boolean
+Default: False
+_Description: Should a test OSM file be imported into the database?
+ If YES, a map of Liechtenstein will be imported so that it will be
+ available to test.
+
