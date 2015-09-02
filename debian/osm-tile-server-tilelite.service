@@ -5,7 +5,7 @@ After=postgresql.service
 [Service]
 ExecStart=/usr/bin/screen -dmS tilelite /usr/bin/liteserv /usr/share/openstreetmap-carto/style.xml -c --cache-path=/var/cache/osm-tile-server-tilelite
 ExecStop=/usr/bin/screen -S tilelite -X quit
-User=osm
+User=$TILELITEUSER
 Type=forking
 
 
