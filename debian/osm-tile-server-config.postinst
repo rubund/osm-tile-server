@@ -28,6 +28,7 @@ case "$1" in
         DBNAME=$RET
         db_get osm-tile-server/import-sample
         IMPORTSAMPLE=$RET
+        db_set osm-tile-server/import-sample false
 
         if ! getent group $DBUSER >/dev/null; then
             addgroup --system $DBUSER >/dev/null
