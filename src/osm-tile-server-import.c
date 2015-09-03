@@ -40,7 +40,7 @@ int main(int argc, char **argv)
 	snprintf(command,255,"osm2pgsql --slim -d %s --cache-strategy sparse -C 100 --hstore -S /usr/share/osm2pgsql/default.style /usr/share/osm-tile-server-base/samples/liechtenstein-latest.osm.pbf",dbname);
 	printf("Importing to database with this command:\n\n");
 	printf(" %s\n\n",command);
-	//system(command);
+	system(command);
 
 	return 0;
 
