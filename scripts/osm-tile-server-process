@@ -2,5 +2,12 @@
 
 set -e
 
-osm-tile-server-download Norway
-osm-tile-server-import /var/cache/osm-tile-server-base/downloaded.osm.pbf
+set +e
+cat /var/cache/osm-tile-server-base/status.txt | grep -q TODO
+RET=$?
+set -e
+if [ "$RET" = "0" ] ; then
+    osm-tile-server-download Norway
+    osm-tile-server-import /var/cache/osm-tile-server-base/downloaded.osm.pbf
+    osm-tile-server-status done
+fi

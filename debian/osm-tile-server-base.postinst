@@ -101,11 +101,13 @@ case "$1" in
         fi
 
         if [ "$ACTIONNOW" = "true" ] ; then
-            su $DBUSER -c "echo \"\" > /var/cache/osm-tile-server-base/status.txt"
+            su $DBUSER -c "echo \"TODO\" > /var/cache/osm-tile-server-base/status.txt"
             if [ "$PROCESSNOW" = "Now; will take some time" ] ; then
                 osm-tile-server-process
                 su $DBUSER -c "echo \"DONE\" > /var/cache/osm-tile-server-base/status.txt"
             fi
+        else
+            su $DBUSER -c "echo \"\" > /var/cache/osm-tile-server-base/status.txt"
         fi
 
     ;;
