@@ -11,3 +11,8 @@ _Description: Should a test OSM file be imported into the database?
  If YES, a map of Liechtenstein will be imported so that it will be
  available to test.
 
+Template: osm-tile-server/download-map
+Type: select
+Choices: Do nothing, Germany, Norway, Sweden
+Default: Do nothing
+_Description: Select which area to download and import:
