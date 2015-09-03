@@ -29,6 +29,10 @@ case "$1" in
         db_get osm-tile-server/import-sample
         IMPORTSAMPLE=$RET
         db_set osm-tile-server/import-sample false
+
+        db_get osm-tile-server/action-now
+        ACTIONNOW=$RET
+
         db_get osm-tile-server/do_it_now
         PROCESSNOW=$RET
         db_set osm-tile-server/do_it_now "Later"
@@ -86,6 +90,8 @@ case "$1" in
         chmod 4554 /usr/bin/osm-tile-server-import
         chown $DBUSER:$DBUSER /usr/bin/osm-tile-server-download
         chmod 4554 /usr/bin/osm-tile-server-download
+        chown $DBUSER:$DBUSER /usr/bin/osm-tile-server-status
+        chmod 4554 /usr/bin/osm-tile-server-status
         
         chown $DBUSER:$DBUSER /var/cache/osm-tile-server-base
 
@@ -94,8 +100,12 @@ case "$1" in
             su $DBUSER -c "osm2pgsql --slim -d $DBNAME --cache-strategy sparse -C 100 --hstore -S /usr/share/osm2pgsql/default.style /usr/share/osm-tile-server-base/samples/liechtenstein-latest.osm.pbf"
         fi
 
-        if [ "$PROCESSNOW" = "Now; will take some time" ] ; then
-            osm-tile-server-process
+        if [ "$ACTIONNOW" = "true" ] ; then
+            su $DBUSER -c "echo \"\" > /var/cache/osm-tile-server-base/status.txt"
+            if [ "$PROCESSNOW" = "Now; will take some time" ] ; then
+                osm-tile-server-process
+                su $DBUSER -c "echo \"DONE\" > /var/cache/osm-tile-server-base/status.txt"
+            fi
         fi
 
     ;;
