@@ -84,6 +84,8 @@ case "$1" in
 
         chown $DBUSER:$DBUSER /usr/bin/osm-tile-server-import
         chmod 4554 /usr/bin/osm-tile-server-import
+        chown $DBUSER:$DBUSER /usr/bin/osm-tile-server-download
+        chmod 4554 /usr/bin/osm-tile-server-download
         
         chown $DBUSER:$DBUSER /var/cache/osm-tile-server-base
 

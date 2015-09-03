@@ -17,7 +17,8 @@ Package: osm-tile-server-base
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends},
         openstreetmap-carto, node-carto,
-        postgis, postgresql-contrib, osm2pgsql, adduser
+        postgis, postgresql-contrib, osm2pgsql, adduser,
+        wget
 Description: Common files for OSM tile server
  This package sets up the postgis database for OSM data.
  A few questions are asked with debconf to set it up.
