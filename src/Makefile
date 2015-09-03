@@ -8,3 +8,6 @@ install: osm-tile-server-import
 
 osm-tile-server-import: osm-tile-server-import.o
 	${CC} -o osm-tile-server-import osm-tile-server-import.o
+
+clean:
+	${RM} *.o osm-tile-server-import
