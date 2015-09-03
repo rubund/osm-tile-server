@@ -10,7 +10,8 @@ Architecture: all
 Depends: ${misc:Depends}, osm-tile-server-base,
             osm-tile-server-tilelite
 # Add other packages when ready:  | osm-tile-server-mod-tile
-Description: Meta package for installing OSM tile server
+Description: Metapackage for installing OSM tile server
+ This is a metapackage for installing the OSM tile server.
 
 Package: osm-tile-server-base
 Architecture: all
@@ -18,6 +19,8 @@ Depends: ${misc:Depends},
         openstreetmap-carto, node-carto,
         postgis, postgresql-contrib, osm2pgsql, adduser
 Description: Common files for OSM tile server
+ This package sets up the postgis database for OSM data.
+ A few questions are asked with debconf to set it up.
 
 Package: osm-tile-server-tilelite
 Architecture: all
@@ -25,6 +28,8 @@ Depends: ${misc:Depends},
          osm-tile-server-base, tilelite, screen
 #Breaks: osm-tile-server-mod-tile
 Description: This sets up a full OSM tile server using tilelite
+ To use tilelite as the tile server, install this
+ package.
 
 #Package: osm-tile-server-mod-tile
 #Architecture: all
