@@ -1,4 +1,6 @@
 #!/bin/bash
 
+set -e
+
 osm-tile-server-download Norway
 osm-tile-server-import /var/cache/osm-tile-server-base/downloaded.osm.pbf
