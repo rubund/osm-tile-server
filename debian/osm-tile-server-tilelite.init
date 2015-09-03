@@ -25,7 +25,7 @@ RUNASUSER=""
 do_start(){
 
     echo "starting"
-    /bin/su $RUNASUSER -c "/usr/bin/screen -dmS tilelite /usr/bin/liteserv /usr/share/openstreetmap-carto/style.xml -c --cache-path=/var/cache/osm-tile-server-tilelite"
+    /bin/su $RUNASUSER -c "/usr/bin/screen -dmS tilelite /usr/bin/liteserv /usr/share/openstreetmap-carto/style-osm-tile-server.xml -c --cache-path=/var/cache/osm-tile-server-tilelite"
 
 }
 
