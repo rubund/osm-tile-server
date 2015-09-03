@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: osm-tile-server\n"
 "Report-Msgid-Bugs-To: osm-tile-server@packages.debian.org\n"
-"POT-Creation-Date: 2015-09-03 01:37+0200\n"
+"POT-Creation-Date: 2015-09-03 08:31+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,25 +19,25 @@ msgstr ""
 
 #. Type: string
 #. Description
-#: ../osm-tile-server-config.templates:1001
+#: ../osm-tile-server-base.templates:1001
 msgid "Enter name of postgresql database to use for the tile server:"
 msgstr ""
 
 #. Type: string
 #. Description
-#: ../osm-tile-server-config.templates:2001
+#: ../osm-tile-server-base.templates:2001
 msgid "Enter name of the postgresql user:"
 msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../osm-tile-server-config.templates:3001
+#: ../osm-tile-server-base.templates:3001
 msgid "Should a test OSM file be imported into the database?"
 msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../osm-tile-server-config.templates:3001
+#: ../osm-tile-server-base.templates:3001
 msgid ""
 "If YES, a map of Liechtenstein will be imported so that it will be available "
 "to test."

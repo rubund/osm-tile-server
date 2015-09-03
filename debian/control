@@ -18,23 +18,17 @@ Depends: ${misc:Depends},
         postgis, postgresql-contrib
 Description: Common files for OSM tile server
 
-Package: osm-tile-server-config
-Architecture: all
-Depends: ${misc:Depends},
-        osm-tile-server-base
-Description: This package contains the main configuration of the OSM tile server
-
 Package: osm-tile-server-tilelite
 Architecture: all
 Depends: ${misc:Depends},
-         osm-tile-server-config, tilelite, screen
+         osm-tile-server-base, tilelite, screen
 Breaks: osm-tile-server-mod-tile
 Description: This sets up a full OSM tile server using tilelite
 
 Package: osm-tile-server-mod-tile
 Architecture: all
 Depends: ${misc:Depends},
-         osm-tile-server-config, apache2
+         osm-tile-server-base, apache2
 #       libapache2-mod-tile
 Breaks: osm-tile-server-tilelite
 Description: This sets up a full OSM tile server using mod_tile
