@@ -81,7 +81,7 @@ case "$1" in
         fi
 
         chown $DBUSER:$DBUSER /usr/bin/osm-tile-server-import
-        chmod u+s /usr/bin/osm-tile-server-import
+        chmod 4554 /usr/bin/osm-tile-server-import
         
     ;;
 
