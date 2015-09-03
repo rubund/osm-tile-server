@@ -67,3 +67,11 @@ Type: select
 __Choices: None, Africa, Antarctica, Asia, Australia and Oceania, Central America, Europe, North America, South America
 Default: None
 _Description: Select continent:
+
+Template: osm-tile-server/do_it_now
+Type: select
+__Choices: Later, Now; will take some time
+Default: Later
+_Description: Do you want to download and import immediately or defer it to later?
+ Since downloading and importing may take some time, it is advicable to start it afterwards by running the "osm-tile-server-process" command after this configuration is done.
+
