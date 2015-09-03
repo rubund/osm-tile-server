@@ -14,7 +14,7 @@ Description: Metapackage for installing OSM tile server
  This is a metapackage for installing the OSM tile server.
 
 Package: osm-tile-server-base
-Architecture: all
+Architecture: any
 Depends: ${misc:Depends},
         openstreetmap-carto, node-carto,
         postgis, postgresql-contrib, osm2pgsql, adduser
