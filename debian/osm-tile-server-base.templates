@@ -7,12 +7,63 @@ _Description: Enter name of postgresql database to use for the tile server:
 Template: osm-tile-server/import-sample
 Type: boolean
 Default: false
-_Description: Should a test OSM file be imported into the database?
- If YES, a map of Liechtenstein will be imported so that it will be
- available to test.
+_Description: Should a test OSM file (Liechtenstein) be imported into the database?
 
-Template: osm-tile-server/download-map
+Template: osm-tile-server/action-now
+Type: boolean
+Default: false
+_Description: Do you want to select area to import now? 
+
+Template: osm-tile-server/country_europe
 Type: select
-Choices: Do nothing, Germany, Norway, Sweden
-Default: Do nothing
+__Choices: None, Germany, Norway, Sweden
+Default: None
 _Description: Select which area to download and import:
+
+Template: osm-tile-server/country_asia
+Type: select
+__Choices: None, China, India, Russia
+Default: None
+_Description: Select which area to download and import:
+
+Template: osm-tile-server/country_namerica
+Type: select
+__Choices: None, Canada, USA
+Default: None
+_Description: Select which area to download and import:
+
+Template: osm-tile-server/country_samerica
+Type: select
+__Choices: None, Bolivia, Venezuela
+Default: None
+_Description: Select which area to download and import:
+
+Template: osm-tile-server/country_camerica
+Type: select
+__Choices: None, Costa Rica, Mexico
+Default: None
+_Description: Select which area to download and import:
+
+Template: osm-tile-server/country_africa
+Type: select
+__Choices: None, Egypt, South Africa
+Default: None
+_Description: Select which area to download and import:
+
+Template: osm-tile-server/country_australia
+Type: select
+__Choices: None, Australia, New Zealand
+Default: None
+_Description: Select which area to download and import:
+
+Template: osm-tile-server/country_antarctica
+Type: select
+__Choices: None
+Default: None
+_Description: Select which area to download and import:
+
+Template: osm-tile-server/continent
+Type: select
+__Choices: None, Africa, Antarctica, Asia, Australia and Oceania, Central America, Europe, North America, South America
+Default: None
+_Description: Select continent:
