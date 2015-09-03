@@ -34,10 +34,17 @@ void parse_settings()
 int main(int argc, char **argv)
 {
 	char command[256];
+	char *pbffile;
+
+	if(argc != 2){
+		fprintf(stderr,"Usage: %s <pbf-file>\n",argv[0]);
+		return -1;
+	}
+	pbffile = argv[1];
 
 	parse_settings();
 
-	snprintf(command,255,"osm2pgsql --slim -d %s --cache-strategy sparse -C 100 --hstore -S /usr/share/osm2pgsql/default.style /usr/share/osm-tile-server-base/samples/liechtenstein-latest.osm.pbf",dbname);
+	snprintf(command,255,"osm2pgsql --slim -d %s --cache-strategy sparse -C 100 --hstore -S /usr/share/osm2pgsql/default.style %s",dbname,pbffile);
 	printf("Importing to database with this command:\n\n");
 	printf(" %s\n\n",command);
 	system(command);
