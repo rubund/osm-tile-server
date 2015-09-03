@@ -22,8 +22,8 @@ set -e
 
 case "$1" in
     configure)
-        db_get osm-tile-server/db-user
-        DBUSER=$RET
+        #db_get osm-tile-server/db-user
+        DBUSER="osm-tile-server"
         db_get osm-tile-server/db-name
         DBNAME=$RET
 
