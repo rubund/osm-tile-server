@@ -80,6 +80,8 @@ case "$1" in
             su $DBUSER -c "osm2pgsql --slim -d $DBNAME --cache-strategy sparse -C 100 --hstore -S /usr/share/osm2pgsql/default.style /usr/share/osm-tile-server-base/samples/liechtenstein-latest.osm.pbf"
         fi
 
+        sed -i 's/^DBNAME=""/DBNAME="'${DBNAME}'"/' /etc/osm-tile-server.conf
+
         chown $DBUSER:$DBUSER /usr/bin/osm-tile-server-import
         chmod 4554 /usr/bin/osm-tile-server-import
         
