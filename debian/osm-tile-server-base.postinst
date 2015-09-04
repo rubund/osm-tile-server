@@ -84,7 +84,7 @@ case "$1" in
         sed -i 's/\(dbname">.*CDATA\)\[[^\]*\]/\1\['${DBNAME}'\]\]/' /usr/share/openstreetmap-carto/style-osm-tile-server.xml
    
 
-        sed -i 's/^DBNAME=""/DBNAME="'${DBNAME}'"/' /etc/osm-tile-server.conf
+        sed -i 's/^DBNAME="[^"]*"/DBNAME="'${DBNAME}'"/' /etc/osm-tile-server.conf
 
         chown $DBUSER:$DBUSER /usr/lib/osm-tile-server-base/bin/osm-tile-server-import
         chmod 4554 /usr/lib/osm-tile-server-base/bin/osm-tile-server-import
