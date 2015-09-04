@@ -1,5 +1,7 @@
 #!/bin/bash
 
+umask 002
+
 if [ "$1" = "done" ] ; then
     echo "DONE" > /var/lib/osm-tile-server-base/status.txt
 elif [ "$1" = "inprogress" ] ; then

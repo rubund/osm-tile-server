@@ -1,5 +1,7 @@
 #!/bin/bash
 
+umask 002
+
 FILENAME="downloaded.osm.pbf"
 URL="http://download.geofabrik.de/europe/norway-latest.osm.pbf"
 COMMAND="wget -O /var/cache/osm-tile-server-base/${FILENAME} ${URL}"

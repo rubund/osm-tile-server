@@ -1,3 +1,5 @@
 #!/bin/bash
 
+umask 002
+
 /usr/lib/osm-tile-server-base/bin/osm-tile-server-import $*
