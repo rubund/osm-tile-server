@@ -120,6 +120,8 @@ case "$1" in
             REGION=$RET
         fi
 
+        umask 002
+        PREVUMASK=$?
         su $DBUSER -c "echo $REGION > /var/lib/osm-tile-server-base/selected_region.txt"
 
 
@@ -136,6 +138,7 @@ case "$1" in
         else
             su $DBUSER -c "echo \"\" > /var/lib/osm-tile-server-base/status.txt"
         fi
+        umask $PREVUMASK
 
     ;;
 

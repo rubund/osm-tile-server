@@ -2,8 +2,9 @@
 
 umask 002
 
+REGION=`cat /var/lib/osm-tile-server-base/selected_region.txt`
 FILENAME="downloaded.osm.pbf"
-URL="http://download.geofabrik.de/europe/norway-latest.osm.pbf"
+URL="http://download.geofabrik.de/${REGION}-latest.osm.pbf"
 COMMAND="wget -O /var/cache/osm-tile-server-base/${FILENAME} ${URL}"
 echo "The following command will be run to download:\n\n"
 echo " ${COMMAND}\n\n"
