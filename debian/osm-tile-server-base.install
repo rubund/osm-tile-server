@@ -2,3 +2,4 @@ usr/bin/*
 usr/lib/osm-tile-server-base/*
 samples usr/share/osm-tile-server-base/
 etc/osm-tile-server.conf /etc/
+data/regions usr/share/osm-tile-server-base/
