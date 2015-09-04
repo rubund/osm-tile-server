@@ -95,6 +95,34 @@ case "$1" in
         chmod 2775 /var/lib/osm-tile-server-base
 
 
+        db_get osm-tile-server/continent
+        CONTINENT=$RET
+        if   [ "$CONTINENT" = "Europe" ] ; then
+            db_get osm-tile-server/country_europe
+            REGION=$RET
+        elif [ "$CONTINENT" = "Asia" ] ; then
+            db_get osm-tile-server/country_asia
+            REGION=$RET
+        elif [ "$CONTINENT" = "North America" ] ; then
+            db_get osm-tile-server/country_namerica
+            REGION=$RET
+        elif [ "$CONTINENT" = "South America" ] ; then
+            db_get osm-tile-server/country_samerica
+            REGION=$RET
+        elif [ "$CONTINENT" = "Africa" ] ; then
+            db_get osm-tile-server/country_africa
+            REGION=$RET
+        elif [ "$CONTINENT" = "Central America" ] ; then
+            db_get osm-tile-server/country_camerica
+            REGION=$RET
+        elif [ "$CONTINENT" = "Australia and Oceania" ] ; then
+            db_get osm-tile-server/country_australia
+            REGION=$RET
+        fi
+
+        su $DBUSER -c "echo $REGION > /var/lib/osm-tile-server-base/selected_region.txt"
+
+
         if [ "$IMPORTSAMPLE" = "true" ] ; then
             su $DBUSER -c "osm2pgsql --slim -d $DBNAME --cache-strategy sparse -C 100 --hstore -S /usr/share/osm2pgsql/default.style /usr/share/osm-tile-server-base/samples/liechtenstein-latest.osm.pbf"
         fi
