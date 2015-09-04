@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: osm-tile-server\n"
 "Report-Msgid-Bugs-To: osm-tile-server@packages.debian.org\n"
-"POT-Creation-Date: 2015-09-03 19:12+0200\n"
+"POT-Creation-Date: 2015-09-04 20:09+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,13 +26,161 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../osm-tile-server-base.templates:2001
-msgid "Should a test OSM file be imported into the database?"
+msgid "Should a test OSM file (Liechtenstein) be imported into the database?"
 msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../osm-tile-server-base.templates:2001
+#: ../osm-tile-server-base.templates:3001
+msgid "Do you want to select area to import now? "
+msgstr ""
+
+#. Type: select
+#. Choices
+#. Type: select
+#. Choices
+#. Type: select
+#. Choices
+#. Type: select
+#. Choices
+#. Type: select
+#. Choices
+#. Type: select
+#. Choices
+#. Type: select
+#. Choices
+#. Type: select
+#. Choices
+#: ../osm-tile-server-base.templates:4001
+#: ../osm-tile-server-base.templates:5001
+#: ../osm-tile-server-base.templates:6001
+#: ../osm-tile-server-base.templates:7001
+#: ../osm-tile-server-base.templates:8001
+#: ../osm-tile-server-base.templates:9001
+#: ../osm-tile-server-base.templates:10001
+#: ../osm-tile-server-base.templates:11001
+msgid "None"
+msgstr ""
+
+#. Type: select
+#. Choices
+#. Type: select
+#. Choices
+#. Type: select
+#. Choices
+#. Type: select
+#. Choices
+#. Type: select
+#. Choices
+#. Type: select
+#. Choices
+#. Type: select
+#. Choices
+#: ../osm-tile-server-base.templates:4001
+#: ../osm-tile-server-base.templates:5001
+#: ../osm-tile-server-base.templates:6001
+#: ../osm-tile-server-base.templates:7001
+#: ../osm-tile-server-base.templates:8001
+#: ../osm-tile-server-base.templates:9001
+#: ../osm-tile-server-base.templates:10001
+msgid "${CHOICES}"
+msgstr ""
+
+#. Type: select
+#. Description
+#. Type: select
+#. Description
+#. Type: select
+#. Description
+#. Type: select
+#. Description
+#. Type: select
+#. Description
+#. Type: select
+#. Description
+#. Type: select
+#. Description
+#: ../osm-tile-server-base.templates:4002
+#: ../osm-tile-server-base.templates:5002
+#: ../osm-tile-server-base.templates:6002
+#: ../osm-tile-server-base.templates:7002
+#: ../osm-tile-server-base.templates:8002
+#: ../osm-tile-server-base.templates:9002
+#: ../osm-tile-server-base.templates:10002
+msgid "Select which area to download and import:"
+msgstr ""
+
+#. Type: select
+#. Choices
+#: ../osm-tile-server-base.templates:11001
+msgid "Africa"
+msgstr ""
+
+#. Type: select
+#. Choices
+#: ../osm-tile-server-base.templates:11001
+msgid "Asia"
+msgstr ""
+
+#. Type: select
+#. Choices
+#: ../osm-tile-server-base.templates:11001
+msgid "Australia and Oceania"
+msgstr ""
+
+#. Type: select
+#. Choices
+#: ../osm-tile-server-base.templates:11001
+msgid "Central America"
+msgstr ""
+
+#. Type: select
+#. Choices
+#: ../osm-tile-server-base.templates:11001
+msgid "Europe"
+msgstr ""
+
+#. Type: select
+#. Choices
+#: ../osm-tile-server-base.templates:11001
+msgid "North America"
+msgstr ""
+
+#. Type: select
+#. Choices
+#: ../osm-tile-server-base.templates:11001
+msgid "South America"
+msgstr ""
+
+#. Type: select
+#. Description
+#: ../osm-tile-server-base.templates:11002
+msgid "Select continent:"
+msgstr ""
+
+#. Type: select
+#. Choices
+#: ../osm-tile-server-base.templates:12001
+msgid "Later"
+msgstr ""
+
+#. Type: select
+#. Choices
+#: ../osm-tile-server-base.templates:12001
+msgid "Now; will take some time"
+msgstr ""
+
+#. Type: select
+#. Description
+#: ../osm-tile-server-base.templates:12002
+msgid "Do you want to download and import immediately or defer it to later?"
+msgstr ""
+
+#. Type: select
+#. Description
+#: ../osm-tile-server-base.templates:12002
 msgid ""
-"If YES, a map of Liechtenstein will be imported so that it will be available "
-"to test."
+"Since downloading and importing may take some time, it is advicable to start "
+"it afterwards by running the \"osm-tile-server-process\" command after this "
+"configuration is done."
 msgstr ""
