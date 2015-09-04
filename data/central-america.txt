@@ -1,0 +1,5 @@
+central-america/belize
+central-america/cuba
+central-america/guatemala
+central-america/haiti-and-domrep
+central-america/nicaragua
