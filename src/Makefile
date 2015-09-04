@@ -1,21 +1,14 @@
 
 
-default: osm-tile-server-import osm-tile-server-download osm-tile-server-status
+default: osm-tile-server-import
 
 install: default
-	mkdir -p ${DESTDIR}/usr/bin
-	install osm-tile-server-import ${DESTDIR}/usr/bin/
-	install osm-tile-server-download ${DESTDIR}/usr/bin/
-	install osm-tile-server-status ${DESTDIR}/usr/bin/
+	mkdir -p ${DESTDIR}/usr/lib/osm-tile-server-base/bin
+	install osm-tile-server-import ${DESTDIR}/usr/lib/osm-tile-server-base/bin/
 
 osm-tile-server-import: osm-tile-server-import.o parse-settings.o
 	${CC} ${LDFLAGS} -o osm-tile-server-import osm-tile-server-import.o parse-settings.o
 
-osm-tile-server-download: osm-tile-server-download.o parse-settings.o
-	${CC} ${LDFLAGS} -o osm-tile-server-download osm-tile-server-download.o parse-settings.o
-
-osm-tile-server-status: osm-tile-server-status.o parse-settings.o
-	${CC} ${LDFLAGS} -o osm-tile-server-status osm-tile-server-status.o parse-settings.o
 
 clean:
-	${RM} *.o osm-tile-server-import osm-tile-server-download osm-tile-server-status
+	${RM} *.o osm-tile-server-import

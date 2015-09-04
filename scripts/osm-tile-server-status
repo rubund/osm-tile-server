@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ "$1" = "done" ] ; then
+    echo "DONE" > /var/lib/osm-tile-server-base/status.txt
+elif [ "$1" = "inprogress" ] ; then
+    echo "INPROGRESS" > /var/lib/osm-tile-server-base/status.txt
+elif [ "$1" = "todo" ] ; then
+    echo "TODO" > /var/lib/osm-tile-server-base/status.txt
+fi
+

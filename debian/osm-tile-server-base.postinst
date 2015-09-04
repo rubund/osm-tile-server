@@ -86,14 +86,13 @@ case "$1" in
 
         sed -i 's/^DBNAME=""/DBNAME="'${DBNAME}'"/' /etc/osm-tile-server.conf
 
-        chown $DBUSER:$DBUSER /usr/bin/osm-tile-server-import
-        chmod 4554 /usr/bin/osm-tile-server-import
-        chown $DBUSER:$DBUSER /usr/bin/osm-tile-server-download
-        chmod 4554 /usr/bin/osm-tile-server-download
-        chown $DBUSER:$DBUSER /usr/bin/osm-tile-server-status
-        chmod 4554 /usr/bin/osm-tile-server-status
+        chown $DBUSER:$DBUSER /usr/lib/osm-tile-server-base/bin/osm-tile-server-import
+        chmod 4554 /usr/lib/osm-tile-server-base/bin/osm-tile-server-import
         
         chown $DBUSER:$DBUSER /var/cache/osm-tile-server-base
+        chown $DBUSER:$DBUSER /var/lib/osm-tile-server-base
+        chmod 2775 /var/cache/osm-tile-server-base
+        chmod 2775 /var/lib/osm-tile-server-base
 
 
         if [ "$IMPORTSAMPLE" = "true" ] ; then
@@ -101,13 +100,13 @@ case "$1" in
         fi
 
         if [ "$ACTIONNOW" = "true" ] ; then
-            su $DBUSER -c "echo \"TODO\" > /var/cache/osm-tile-server-base/status.txt"
+            su $DBUSER -c "echo \"TODO\" > /var/lib/osm-tile-server-base/status.txt"
             if [ "$PROCESSNOW" = "Now; will take some time" ] ; then
                 osm-tile-server-process
-                su $DBUSER -c "echo \"DONE\" > /var/cache/osm-tile-server-base/status.txt"
+                su $DBUSER -c "echo \"DONE\" > /var/lib/osm-tile-server-base/status.txt"
             fi
         else
-            su $DBUSER -c "echo \"\" > /var/cache/osm-tile-server-base/status.txt"
+            su $DBUSER -c "echo \"\" > /var/lib/osm-tile-server-base/status.txt"
         fi
 
     ;;
