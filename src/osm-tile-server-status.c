@@ -25,6 +25,16 @@ int main(int argc, char **argv)
 		fprintf(wfile,"DONE");
 		fclose(wfile);
 	}
+	else if(strncmp(cmd,"inprogress",10) == 0) {
+		wfile = fopen("/var/cache/osm-tile-server-base/status.txt","w");
+		fprintf(wfile,"INPROGRESS");
+		fclose(wfile);
+	}
+	else if(strncmp(cmd,"todo",4) == 0) {
+		wfile = fopen("/var/cache/osm-tile-server-base/status.txt","w");
+		fprintf(wfile,"TODO");
+		fclose(wfile);
+	}
 
 	//snprintf(command,255,"osm2pgsql --slim -d %s --cache-strategy sparse -C 100 --hstore -S /usr/share/osm2pgsql/default.style %s",dbname,pbffile);
 	//printf("Importing to database with this command:\n\n");

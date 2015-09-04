@@ -1,5 +1,13 @@
 #!/bin/bash
 
+failed(){
+    echo "Failed"
+    osm-tile-server-status todo
+    exit -1
+}
+trap failed SIGINT
+trap failed SIGTERM
+
 set -e
 
 set +e
@@ -7,7 +15,11 @@ cat /var/cache/osm-tile-server-base/status.txt | grep -q TODO
 RET=$?
 set -e
 if [ "$RET" = "0" ] ; then
+    osm-tile-server-status inprogress
     osm-tile-server-download Norway
     osm-tile-server-import /var/cache/osm-tile-server-base/downloaded.osm.pbf
     osm-tile-server-status done
+else
+    echo "Nothing to do"
+    echo "Run \"sudo dpkg-reconfigure osm-tile-server-base\" to configure OSM tile server"
 fi
