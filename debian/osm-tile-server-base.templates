@@ -18,49 +18,49 @@ Template: osm-tile-server/country_europe
 Type: select
 __Choices: None, ${CHOICES}
 Default: None
-_Description: Select which area to download and import:
+_Description: Which region do you like to download and import?
 
 Template: osm-tile-server/country_asia
 Type: select
 __Choices: None, ${CHOICES}
 Default: None
-_Description: Select which area to download and import:
+_Description: Which region do you like to download and import?
 
 Template: osm-tile-server/country_namerica
 Type: select
 __Choices: None, ${CHOICES}
 Default: None
-_Description: Select which area to download and import:
+_Description: Which region do you like to download and import?
 
 Template: osm-tile-server/country_samerica
 Type: select
 __Choices: None, ${CHOICES}
 Default: None
-_Description: Select which area to download and import:
+_Description: Which region do you like to download and import?
 
 Template: osm-tile-server/country_camerica
 Type: select
 __Choices: None, ${CHOICES}
 Default: None
-_Description: Select which area to download and import:
+_Description: Which region do you like to download and import?
 
 Template: osm-tile-server/country_africa
 Type: select
 __Choices: None, ${CHOICES}
 Default: None
-_Description: Select which area to download and import:
+_Description: Which region do you like to download and import?
 
 Template: osm-tile-server/country_australia
 Type: select
 __Choices: None, ${CHOICES}
 Default: None
-_Description: Select which area to download and import:
+_Description: Which region do you like to download and import?
 
 Template: osm-tile-server/continent
 Type: select
 __Choices: None, Africa, Asia, Australia and Oceania, Central America, Europe, North America, South America
 Default: None
-_Description: Select continent:
+_Description: Which continent do you like to choose region from?
 
 Template: osm-tile-server/do_it_now
 Type: select

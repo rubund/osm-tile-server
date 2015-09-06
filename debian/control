@@ -22,6 +22,9 @@ Depends: ${shlibs:Depends}, ${misc:Depends},
 Description: Common files for OSM tile server
  This package sets up the postgis database for OSM data.
  A few questions are asked with debconf to set it up.
+ .
+ You will be able to select a region to be downloaded and
+ imported to the postgis database.
 
 Package: osm-tile-server-tilelite
 Architecture: all
@@ -30,7 +33,8 @@ Depends: ${misc:Depends},
 #Breaks: osm-tile-server-mod-tile
 Description: This sets up a full OSM tile server using tilelite
  To use tilelite as the tile server, install this
- package.
+ package. It will set up a service which can be automatically
+ started on boot.
 
 #Package: osm-tile-server-mod-tile
 #Architecture: all
