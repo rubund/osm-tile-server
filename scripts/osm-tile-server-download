@@ -2,7 +2,7 @@
 
 umask 002
 
-source /etc/osm-tile-server-base.conf
+source /etc/osm-tile-server.conf
 
 REGION=`cat /var/lib/osm-tile-server-base/selected_region.txt`
 FILENAME="downloaded.osm.pbf"
