@@ -1,0 +1,29 @@
+NAME
+  osm-tile-server.conf - Configuration for automatic setup of OSM tile server 
+
+DESCRIPTION
+
+
+  DBNAME=       
+    Sets the postgres database name for the OpenStreetMap data
+
+  IMPORT_SLIM=  
+    true or false
+
+    Sets import mode to --slim if true.
+
+  IMPORT_MEMORY=  Sets how many MBs of memory will be used during the import. (The "-C" argument for osm2pgsql)
+
+  IMPORT_CACHE_STRATEGY=  
+    optimized, dense, sparse, chunked
+
+    Sets the cache strategy to use. (The "--cache-strategy %s" argument for osm2pgsql). See osm2pgsql(1) for details.
+
+  SRC_URL=    
+    URL for downloading OSM data for regions. The default is "http://download.geofabrik.de"
+
+SEE ALSO
+  osm2pgsql(1)
+
+AUTHOR
+  This manual page was written by Ruben Undheim <ruben.undheim@gmail.com> for the Debian project (and may be used by others).
