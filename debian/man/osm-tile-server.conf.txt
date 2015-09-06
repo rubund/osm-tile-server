@@ -2,7 +2,7 @@ NAME
   osm-tile-server.conf - Configuration for automatic setup of OSM tile server 
 
 DESCRIPTION
-
+  The osm-tile-server configuration file, /etc/osm-tile-server.conf, is used to configure how the automatic setup of an OSM tile server will be done. The default values are suitable for small imports on computers with limited memory resources. If you want to import an entire planet file, some changes should be done unless you want to wait forever.
 
   DBNAME=       
     Sets the postgres database name for the OpenStreetMap data
