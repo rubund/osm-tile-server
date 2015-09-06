@@ -2,9 +2,11 @@
 
 umask 002
 
+source /etc/osm-tile-server-base.conf
+
 REGION=`cat /var/lib/osm-tile-server-base/selected_region.txt`
 FILENAME="downloaded.osm.pbf"
-URL="http://download.geofabrik.de/${REGION}-latest.osm.pbf"
+URL="${SRC_URL}/${REGION}-latest.osm.pbf"
 COMMAND="wget -O /var/cache/osm-tile-server-base/${FILENAME} ${URL}"
 echo "The following command will be run to download:\n\n"
 echo " ${COMMAND}\n\n"

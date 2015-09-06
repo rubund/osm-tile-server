@@ -39,11 +39,11 @@ void parse_settings()
 		const char *l = linebuf;
 		if(parse_one(l,"DBNAME=",cfg_dbname) == 0){
 		}
-		else if(parse_one(l,"SLIM=",cfg_slim) == 0){
+		else if(parse_one(l,"IMPORT_SLIM=",cfg_slim) == 0){
 		}
-		else if(parse_one(l,"CACHE_STRATEGY=",cfg_cache_strategy) == 0){
+		else if(parse_one(l,"IMPORT_CACHE_STRATEGY=",cfg_cache_strategy) == 0){
 		}
-		else if(parse_one(l,"MEMORY=",cfg_memory) == 0){
+		else if(parse_one(l,"IMPORT_MEMORY=",cfg_memory) == 0){
 		}
 	}
 	fclose(infile);
