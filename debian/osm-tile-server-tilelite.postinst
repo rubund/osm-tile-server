@@ -22,14 +22,27 @@ set -e
 
 case "$1" in
     configure)
-        #db_get osm-tile-server/db-user
         DBUSER="osm-tile-server"
 
         chown $DBUSER:$DBUSER /var/cache/osm-tile-server-tilelite
 
 
-        sed -i 's/^User=.*$/User='${DBUSER}'/' /lib/systemd/system/osm-tile-server-tilelite.service
-        sed -i 's/^RUNASUSER=.*$/RUNASUSER="'${DBUSER}'"/' /etc/init.d/osm-tile-server-tilelite
+        cat << EOF > /etc/apache2/sites-available/osm-tile-server-tilelite.conf
+<VirtualHost *:80>
+#ServerName tull.naturfakta.no
+WSGIScriptAlias / /usr/share/osm-tile-server-tilelite/wsgi/tilelite.wsgi
+WSGIDaemonProcess osm-tile-server-tilelite user=osm-tile-server group=osm-tile-server processes=10 threads=1
+WSGIProcessGroup osm-tile-server-tilelite
+
+<Directory /usr/local>
+    AllowOverride None
+    Require all granted
+</Directory>
+
+</VirtualHost>
+EOF
+
+        a2ensite osm-tile-server-tilelite.conf
         
     ;;
 

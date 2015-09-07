@@ -29,7 +29,8 @@ Description: Common files for OSM tile server
 Package: osm-tile-server-tilelite
 Architecture: all
 Depends: ${misc:Depends},
-         osm-tile-server-base, tilelite, screen
+         osm-tile-server-base, tilelite,
+         apache2, libapache2-mod-wsgi
 #Breaks: osm-tile-server-mod-tile
 Description: This sets up a full OSM tile server using tilelite
  To use tilelite as the tile server, install this
