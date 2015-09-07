@@ -1,0 +1,12 @@
+<VirtualHost *:80>
+ServerName tull.naturfakta.no
+WSGIScriptAlias / /usr/local/testing.wsgi
+WSGIDaemonProcess karttest user=osm-tile-server group=osm-tile-server processes=10 threads=1
+WSGIProcessGroup karttest
+
+<Directory /usr/local>
+    AllowOverride None
+    Require all granted
+</Directory>
+
+</VirtualHost>
