@@ -29,15 +29,9 @@ case "$1" in
 
         cat << EOF > /etc/apache2/sites-available/osm-tile-server-tilelite.conf
 <VirtualHost *:80>
-#ServerName tull.naturfakta.no
-WSGIScriptAlias / /usr/share/osm-tile-server-tilelite/wsgi/tilelite.wsgi
+WSGIScriptAlias /osm /usr/share/osm-tile-server-tilelite/wsgi/tilelite.wsgi
 WSGIDaemonProcess osm-tile-server-tilelite user=osm-tile-server group=osm-tile-server processes=10 threads=1
 WSGIProcessGroup osm-tile-server-tilelite
-
-<Directory /usr/local>
-    AllowOverride None
-    Require all granted
-</Directory>
 
 </VirtualHost>
 EOF
