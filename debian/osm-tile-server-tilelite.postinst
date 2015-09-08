@@ -22,9 +22,13 @@ set -e
 
 case "$1" in
     configure)
+        db_get osm-tile-server/servername
+        SERVERNAME=$RET
         DBUSER="osm-tile-server"
 
         chown $DBUSER:$DBUSER /var/cache/osm-tile-server-tilelite
+
+        sed -i 's/SERVERNAME/'$SERVERNAME'/' /etc/apache2/sites-available/osm-tile-server-tilelite.conf
 
         a2ensite osm-tile-server-tilelite.conf
         

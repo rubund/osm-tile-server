@@ -1,0 +1,5 @@
+
+Template: osm-tile-server/servername
+Type: string
+Default: localhost
+_Description: Enter name of servername to use for accessing this OSM tile server:
