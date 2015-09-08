@@ -20,7 +20,6 @@ set -e
 case "$1" in
     remove|upgrade|deconfigure)
         a2dissite osm-tile-server-tilelite.conf
-        rm -f /etc/apache2/sites-available/osm-tile-server-tilelite.conf
     ;;
 
     failed-upgrade)

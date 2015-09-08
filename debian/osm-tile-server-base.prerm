@@ -19,10 +19,6 @@ set -e
 
 case "$1" in
     remove|upgrade|deconfigure)
-       rm -f /usr/share/openstreetmap-carto/style-osm-tile-server.xml 
-       rm -f /var/lib/osm-tile-server-base/selected_region.txt
-       rm -f /var/lib/osm-tile-server-base/status.txt
-       rm -f /var/cache/osm-tile-server-base/downloaded.osm.pbf
     ;;
 
     failed-upgrade)
