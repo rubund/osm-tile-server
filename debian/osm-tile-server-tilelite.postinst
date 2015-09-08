@@ -28,7 +28,7 @@ case "$1" in
 
         chown $DBUSER:$DBUSER /var/cache/osm-tile-server-tilelite
 
-        sed -i 's/SERVERNAME/'$SERVERNAME'/' /etc/apache2/sites-available/osm-tile-server-tilelite.conf
+        sed -i 's/^ServerName.*/ServerName '$SERVERNAME'/' /etc/apache2/sites-available/osm-tile-server-tilelite.conf
 
         a2ensite osm-tile-server-tilelite.conf
         
