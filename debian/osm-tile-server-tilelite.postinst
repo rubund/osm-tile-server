@@ -26,16 +26,6 @@ case "$1" in
 
         chown $DBUSER:$DBUSER /var/cache/osm-tile-server-tilelite
 
-
-        cat << EOF > /etc/apache2/sites-available/osm-tile-server-tilelite.conf
-<VirtualHost *:80>
-WSGIScriptAlias /osm /usr/share/osm-tile-server-tilelite/wsgi/tilelite.wsgi
-WSGIDaemonProcess osm-tile-server-tilelite user=osm-tile-server group=osm-tile-server processes=10 threads=1
-WSGIProcessGroup osm-tile-server-tilelite
-
-</VirtualHost>
-EOF
-
         a2ensite osm-tile-server-tilelite.conf
         
     ;;

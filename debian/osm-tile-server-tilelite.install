@@ -1,1 +1,2 @@
 etc/tilelite.wsgi usr/share/osm-tile-server-tilelite/wsgi/
+etc/apache/osm-tile-server-tilelite.conf etc/apache2/sites-available/
