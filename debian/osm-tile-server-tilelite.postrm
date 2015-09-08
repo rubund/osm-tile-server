@@ -21,7 +21,7 @@ set -e
 
 case "$1" in
     purge|remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
-        rm -f /etc/apache2/sites-available/osm-tile-server-tilelite.conf
+
     ;;
 
     *)
