@@ -79,9 +79,11 @@ case "$1" in
             echo "DONE"
         fi
 
-        cp /usr/share/openstreetmap-carto/style.xml /usr/share/openstreetmap-carto/style-osm-tile-server.xml
+        cp /usr/share/openstreetmap-carto/style.xml /var/lib/osm-tile-server-base/tilesets/default/style.xml
 
-        sed -i 's/\(dbname">.*CDATA\)\[[^\]*\]/\1\['${DBNAME}'\]\]/' /usr/share/openstreetmap-carto/style-osm-tile-server.xml
+        sed -i 's/\(dbname">.*CDATA\)\[[^\]*\]/\1\['${DBNAME}'\]\]/' /var/lib/osm-tile-server-base/tilesets/default/style.xml
+        ln -sf /usr/share/openstreetmap-carto/data /var/lib/osm-tile-server-base/tilesets/default/data
+        ln -sf /usr/share/openstreetmap-carto/symbols /var/lib/osm-tile-server-base/tilesets/default/symbols
    
 
         sed -i 's/^DBNAME="[^"]*"/DBNAME="'${DBNAME}'"/' /etc/osm-tile-server.conf
@@ -145,9 +147,9 @@ case "$1" in
     triggered)
         db_get osm-tile-server/db-name
         DBNAME=$RET
-        cp /usr/share/openstreetmap-carto/style.xml /usr/share/openstreetmap-carto/style-osm-tile-server.xml
+        cp /usr/share/openstreetmap-carto/style.xml /var/lib/osm-tile-server-base/tilesets/default/style.xml
 
-        sed -i 's/\(dbname">.*CDATA\)\[[^\]*\]/\1\['${DBNAME}'\]\]/' /usr/share/openstreetmap-carto/style-osm-tile-server.xml
+        sed -i 's/\(dbname">.*CDATA\)\[[^\]*\]/\1\['${DBNAME}'\]\]/' /var/lib/osm-tile-server-base/tilesets/default/style.xml
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)

@@ -1,2 +1,4 @@
 /var/cache/osm-tile-server-base
 /var/lib/osm-tile-server-base
+/var/lib/osm-tile-server-base/tilesets
+/var/lib/osm-tile-server-base/tilesets/default
