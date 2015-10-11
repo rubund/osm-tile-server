@@ -26,9 +26,8 @@ int main(int argc, char **argv)
 	snprintf(command,255,"osm2pgsql %s -d %s --cache-strategy %s -C %s --hstore -S /usr/share/osm2pgsql/default.style %s",cfg_slim,cfg_dbname,cfg_cache_strategy,cfg_memory,pbffile);
 	printf("Importing to database with this command:\n\n");
 	printf(" %s\n\n",command);
-	system(command);
 
-	return 0;
+	return system(command);
 
 }
 
