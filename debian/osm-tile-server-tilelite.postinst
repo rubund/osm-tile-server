@@ -19,6 +19,22 @@ set -e
 # for details, see https://www.debian.org/doc/debian-policy/ or
 # the debian-policy package
 
+copy_changed_conffile() {
+    local PKGNAME="$1"
+    local CONFFILE="$2"
+
+    [ -e "$CONFFILE" ] || return 0
+
+    local md5sum="$(md5sum $CONFFILE | sed -e 's/ .*//')"
+    local old_md5sum="$(dpkg-query -W -f='${Conffiles}' $PKGNAME | \
+            sed -n -e "\' $CONFFILE ' { s/ obsolete$//; s/.* //; p }")"
+    if [ "$md5sum" != "$old_md5sum" ]; then
+        echo "Conffile $CONFFILE has been modified by you."
+        echo "Saving as $CONFFILE.dpkg-bak ..."
+        cp "$CONFFILE" "$CONFFILE".dpkg-bak
+    fi
+}
+
 
 case "$1" in
     configure)
@@ -28,6 +44,7 @@ case "$1" in
 
         chown $DBUSER:$DBUSER /var/cache/osm-tile-server-tilelite
 
+        copy_changed_conffile osm-tile-server-tilelite /etc/apache2/sites-available/osm-tile-server-tilelite.conf
         sed -i 's/^ServerName.*/ServerName '$SERVERNAME'/' /etc/apache2/sites-available/osm-tile-server-tilelite.conf
 
         a2ensite osm-tile-server-tilelite.conf
