@@ -7,7 +7,7 @@ _Description: Enter name of postgresql database to use for the tile server:
 Template: osm-tile-server/import-sample
 Type: boolean
 Default: false
-_Description: Should a test OSM file (Liechtenstein) be imported into the database?
+_Description: Import a small test OSM file (Liechtenstein) into the database?
 
 Template: osm-tile-server/action-now
 Type: boolean
@@ -67,5 +67,5 @@ Type: select
 __Choices: Later, Now; will take some time
 Default: Later
 _Description: Do you want to download and import immediately or defer it to later?
- Since downloading and importing may take some time, it is advicable to start it afterwards by running the "osm-tile-server-process" command after this configuration is done.
+ Since downloading and importing may take some time, it is recommended to start it afterwards by running the "osm-tile-server-process" command as "root" or as a user in the "osm-tile-server" group.
 
