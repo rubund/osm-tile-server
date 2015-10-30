@@ -2,4 +2,5 @@
 Template: osm-tile-server/servername
 Type: string
 Default: localhost
-_Description: Enter name of the Apache servername to use for accessing this OSM tile server:
+_Description: Enter name of the servername to use for accessing this OSM tile server:
+ This is the "Servername" as specified in Apache2 configuration files.
