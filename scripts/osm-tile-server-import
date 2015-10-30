@@ -19,7 +19,7 @@ if groups | grep -q '\bosm-tile-server\b' ; then
 fi
 
 if [ $ALLOWED = 1 ] ;then
-  /usr/lib/osm-tile-server-base/bin/osm-tile-server-import $*
+  /usr/lib/osm-tile-server-base/bin/osm-tile-server-import-raw $*
 else
   no_permission
 fi

@@ -88,8 +88,8 @@ case "$1" in
 
         sed -i 's/^DBNAME="[^"]*"/DBNAME="'${DBNAME}'"/' /etc/osm-tile-server.conf
 
-        chown $DBUSER:$DBUSER /usr/lib/osm-tile-server-base/bin/osm-tile-server-import
-        chmod 4554 /usr/lib/osm-tile-server-base/bin/osm-tile-server-import
+        chown $DBUSER:$DBUSER /usr/lib/osm-tile-server-base/bin/osm-tile-server-import-raw
+        chmod 4554 /usr/lib/osm-tile-server-base/bin/osm-tile-server-import-raw
         
         chown $DBUSER:$DBUSER /var/cache/osm-tile-server-base
         chown $DBUSER:$DBUSER /var/lib/osm-tile-server-base
