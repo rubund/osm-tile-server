@@ -1,7 +1,28 @@
 #!/bin/bash
 
+no_permission(){
+    echo "You do not have permission to run this command."
+    echo "Add yourself to the 'osm-tile-server' group"
+}
+
 umask 002
 PATH=$PATH:/usr/lib/osm-tile-server-base/bin
+
+ALLOWED=0
+
+WHO=`whoami`
+if [ "$WHO" = "root" ] || [ "$WHO" = "osm-tile-server" ] ; then
+    ALLOWED=1
+fi
+
+if groups | grep -q '\bosm-tile-server\b' ; then
+    ALLOWED=1
+fi
+
+if [ $ALLOWED = 0 ] ;then
+    no_permission
+    exit -1
+fi
 
 failed(){
     echo "Failed"
