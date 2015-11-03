@@ -1,5 +1,5 @@
 osm-tile-server (0.1~a5) UNRELEASED; urgency=low
 
-  * Initial Release.
+  * Initial release (Closes: #803988).
 
- -- Ruben Undheim <ruben.undheim@gmail.com>  Mon, 28 Sep 2015 09:14:16 +0400
+ -- Ruben Undheim <ruben.undheim@gmail.com>  Tue, 03 Nov 2015 23:41:52 +0100
