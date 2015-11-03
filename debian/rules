@@ -14,6 +14,7 @@ CHANGELOG_DATE ?= $(shell date -d "`dpkg-parsechangelog --show-field Date`" +"%d
 
 
 override_dh_auto_clean:
+	dh_auto_clean
 	$(RM) debian/man/*.1
 	$(RM) debian/man/*.5
 	$(RM) debian/man/*.7
