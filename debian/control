@@ -4,6 +4,8 @@ Priority: optional
 Maintainer: Ruben Undheim <ruben.undheim@gmail.com>
 Build-Depends: debhelper (>= 9), po-debconf, txt2man
 Standards-Version: 3.9.6
+Vcs-Browser: https://anonscm.debian.org/cgit/pkg-grass/osm-tile-server.git
+Vcs-Git: git://anonscm.debian.org/pkg-grass/osm-tile-server.git
 
 Package: osm-tile-server
 Architecture: all
