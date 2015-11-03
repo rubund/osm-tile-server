@@ -19,6 +19,9 @@ DESCRIPTION
 
     Sets the cache strategy to use. (The "--cache-strategy %s" argument for osm2pgsql). See osm2pgsql(1) for details.
 
+  IMPORT_PROCESSES=       
+    Selects how many CPU cores to use while importing.
+
   SRC_URL=    
     URL for downloading OSM data for regions. The default is "http://download.geofabrik.de"
 

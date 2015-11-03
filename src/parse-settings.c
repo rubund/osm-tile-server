@@ -6,6 +6,7 @@ char cfg_dbname[64];
 char cfg_slim[64];
 char cfg_cache_strategy[64];
 char cfg_memory[64];
+char cfg_processes[64];
 
 int parse_one(const char *l, const char *cmp, char *var){
 	int len;
@@ -56,6 +57,8 @@ void parse_settings()
 		else if(parse_one(l,"IMPORT_CACHE_STRATEGY=",cfg_cache_strategy) == 0){
 		}
 		else if(parse_one(l,"IMPORT_MEMORY=",cfg_memory) == 0){
+		}
+		else if(parse_one(l,"IMPORT_PROCESSES=",cfg_processes) == 0){
 		}
 	}
 	fclose(infile);
