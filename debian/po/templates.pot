@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the osm-tile-server package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: osm-tile-server\n"
 "Report-Msgid-Bugs-To: osm-tile-server@packages.debian.org\n"
-"POT-Creation-Date: 2015-10-30 19:28+0100\n"
+"POT-Creation-Date: 2015-11-03 20:45+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -183,4 +183,16 @@ msgid ""
 "Since downloading and importing may take some time, it is recommended to "
 "start it afterwards by running the \"osm-tile-server-process\" command as "
 "\"root\" or as a user in the \"osm-tile-server\" group."
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../osm-tile-server-tilelite.templates:1001
+msgid "Enter name of the servername to use for accessing this OSM tile server:"
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../osm-tile-server-tilelite.templates:1001
+msgid "This is the \"Servername\" as specified in Apache2 configuration files."
 msgstr ""
