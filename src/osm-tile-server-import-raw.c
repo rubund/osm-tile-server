@@ -10,7 +10,7 @@ int main(int argc, char **argv)
 	char *pbffile;
 
 	if(argc != 2){
-		fprintf(stderr,"Usage: %s <pbf-file>\n",argv[0]);
+		fprintf(stderr,"Usage: osm-tile-server-import <pbf-file>\n");
 		return -1;
 	}
 	pbffile = argv[1];
