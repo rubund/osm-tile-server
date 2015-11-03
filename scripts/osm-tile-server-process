@@ -2,7 +2,8 @@
 
 no_permission(){
     echo "You do not have permission to run this command."
-    echo "Add yourself to the 'osm-tile-server' group"
+    echo "Run as 'root' or add yourself to the group:"
+    echo "  'osm-tile-server'"
 }
 
 umask 002
