@@ -1,0 +1,11 @@
+NAME
+  osm-tile-server-xx - xxxx
+
+DESCRIPTION
+  To...
+
+SEE ALSO
+  osm-tile-server(7)
+
+AUTHOR
+  This manual page was written by Ruben Undheim <ruben.undheim@gmail.com> for the Debian project (and may be used by others).

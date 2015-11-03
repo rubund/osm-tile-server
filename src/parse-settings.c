@@ -9,17 +9,29 @@ char cfg_memory[64];
 
 int parse_one(const char *l, const char *cmp, char *var){
 	int len;
+	int i;
+	int linelen;
 	len = strlen(cmp);
-	if(strncmp(cmp,l,strlen(cmp)) == 0) {
-		if(l[7] == '\"'){
-			char *substr = strstr(l+len+1,"\"");
+	linelen=strlen(l);
+	for(i=0;i<linelen;i++){
+		if(l[i] == '#' || l[i] == '\n'){
+			return -1;
+		}
+		else if (l[i] != ' ' && l[i] != '\t'){
+			break;
+		}
+	}
+	const char *reml = l+i;
+	if(strncmp(cmp,reml,strlen(cmp)) == 0) {
+		if(reml[strlen(cmp)] == '\"' || reml[strlen(cmp)] == '\''){
+			char *substr = strstr(reml+len+1,"\"");
 			*substr = 0;
-			strncpy(var,l+len+1,63);
+			strncpy(var,reml+len+1,63);
 		}
 		else {
-			char *substr = strstr(l+len+1,"\n");
+			char *substr = strstr(reml+len+1,"\n");
 			*substr = 0;
-			strncpy(var,l+len,63);
+			strncpy(var,reml+len,63);
 		}
 		return 0;
 	}

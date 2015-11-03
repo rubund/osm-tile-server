@@ -10,8 +10,11 @@ Architecture: all
 Depends: ${misc:Depends}, osm-tile-server-base,
             osm-tile-server-tilelite
 # Add other packages when ready:  | osm-tile-server-mod-tile
-Description: Metapackage for installing OSM tile server
+Description: OpenStreetMap tile server
  This is a metapackage for installing the OSM tile server.
+ It can use various 'backends', but the default is tilelite.
+ .
+ Postgis is always used as the backend database.
 
 Package: osm-tile-server-base
 Architecture: any
@@ -32,10 +35,10 @@ Depends: ${misc:Depends},
          osm-tile-server-base, tilelite,
          apache2, libapache2-mod-wsgi
 #Breaks: osm-tile-server-mod-tile
-Description: This sets up a full OSM tile server using tilelite
+Description: Sets up a full OSM tile server using tilelite
  To use tilelite as the tile server, install this
- package. It will set up a service which can be automatically
- started on boot.
+ package. It will set up apache2 to provide an OpenStreetMap
+ tile server.
 
 #Package: osm-tile-server-mod-tile
 #Architecture: all

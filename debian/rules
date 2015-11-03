@@ -7,7 +7,17 @@ export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
 
 export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 
+CHANGELOG_DATE ?= $(shell date -d "`dpkg-parsechangelog --show-field Date`" +"%d %B %Y")
+
 %:
 	dh $@ 
 
 
+override_dh_auto_clean:
+	$(RM) debian/man/*.1
+	$(RM) debian/man/*.5
+	$(RM) debian/man/*.7
+
+override_dh_installman:
+	cd debian/man ; CHANGELOG_DATE="$(CHANGELOG_DATE)" ./genmanpages.sh
+	dh_installman

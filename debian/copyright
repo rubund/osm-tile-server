@@ -8,7 +8,7 @@ Files: samples/liechtenstein-latest.osm.pbf
 Copyright: OpenStreetMap contributors
 License: ODbL
 
-Files: scripts/install-postgis-osm-db.sh scripts/install-postgis-osm-user.sh
+Files: scripts/install-postgis-osm-user.sh
 Copyright: Kai Krueger
 License: GPL-2+
 
